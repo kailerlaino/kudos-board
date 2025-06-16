@@ -1,0 +1,14 @@
+.banner-section {
+  background-color: #BBE1C3;
+  color: white;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-bottom: 3rem;
+  border: 10rem;
+}
+
+.banner-title {
+  text-align: center;
+  color: black;
+}
+

@@ -1,0 +1,10 @@
+footer {
+  position: absolute;
+  background-color: #BBE1C3;
+  color: black;
+  padding: 20px;
+}
+
+footer p {
+  margin: 0;
+}
