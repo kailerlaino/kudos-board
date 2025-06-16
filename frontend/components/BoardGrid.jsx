@@ -1,22 +1,30 @@
 import "./BoardGrid.css";
-import Board from "./Board"
+import {useState} from "react"
+import Board from "./Board";
+import React from "react";
 
 const BoardGrid = () => {
-//   if (loading && boards.length === 0) {
-//     return (
-//       <>
-//         <p>loading...</p>
-//       </>
-//     );
-//   }
+  const [showForm, setShowForm] = useState(false);
 
-//   if (boards.length === 0) {
-//     return (
-//       <>
-//         <p>No movies Found</p>
-//       </>
-//     );
-//   }
+  const toggleForm = () => {
+    setShowForm(!showForm);
+  };
+
+  //   if (loading && boards.length === 0) {
+  //     return (
+  //       <>
+  //         <p>loading...</p>
+  //       </>
+  //     );
+  //   }
+
+  //   if (boards.length === 0) {
+  //     return (
+  //       <>
+  //         <p>No movies Found</p>
+  //       </>
+  //     );
+  //   }
   return (
     <>
       <section className="board-grid">
