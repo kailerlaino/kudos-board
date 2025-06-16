@@ -1,4 +1,4 @@
-.movie-card {
+.board-card {
   border: 1px solid #000;
   border-radius: 10px;
   background-color: #fff;
@@ -8,15 +8,15 @@
   transition: transform 0.3s ease-in-out;
 }
 
-.movie-card:hover {
+.board-card:hover {
   background-color: lightgrey;
 }
 
-.movie-card:hover .icon-container {
+.board-card:hover .icon-container {
   display: flex;
 }
 
-.movie-card img {
+.board-card img {
   max-width: 100%;
   border-radius: 10px;
 }

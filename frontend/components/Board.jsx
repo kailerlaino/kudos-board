@@ -3,7 +3,7 @@ import "./Board.css";
 const Board = () => {
   return (
     <>
-    <article className="movie-card">
+    <article className="board-card">
       <img alt={`board picture`} src={"https://picsum.photos/200"}></img>
       <h3>Board Title</h3>
       <p>Board Type</p>
