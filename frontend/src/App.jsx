@@ -1,18 +1,19 @@
-import './App.css'
-import {useState} from 'react'
-import Header from '../components/Header'
-import SortBy from '../components/SortForm'
-import SearchForm from '../components/SearchForm'
-import BoardGrid from '../components/BoardGrid'
-import Footer from '../components/Footer'
-
-const [showForm, setShowForm] = useState(false)
-
-const toggleForm = () => {
-  setShowForm(!showForm);
-}
+import "./App.css";
+import { useState } from "react";
+import Header from "../components/Header";
+import SortBy from "../components/SortForm";
+import SearchForm from "../components/SearchForm";
+import CreateBoardForm from "../components/CreateBoardForm"
+import BoardGrid from "../components/BoardGrid";
+import Footer from "../components/Footer";
 
 function App() {
+  const [showForm, setShowForm] = useState(false);
+
+  const toggleForm = () => {
+    setShowForm(!showForm);
+  };
+
 
   return (
     <>
@@ -23,13 +24,12 @@ function App() {
         Create new board
       </button>
       {showForm && (
-        <NewBoardForm onSuccess={handleCreateSuccess} onClose={toggleForm} />
-
+        <CreateBoardForm onClose={toggleForm} />
       )}
       <BoardGrid />
       <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
