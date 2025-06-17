@@ -1,15 +1,15 @@
 import "./Board.css";
 
-const Board = () => {
+const Board = ({board}) => {
+  console.log("Board component rendered with board:", board);
   return (
     <>
-    <article className="board-card">
       <img alt={`board picture`} src={"https://picsum.photos/200"}></img>
-      <h3>Board Title</h3>
-      <p>Board Type</p>
+      <h3>{board.title}</h3>
+      <p>{board.category}</p>
+      <p>{board.author ? board.author : "unknown"}</p>
       <a>View Cards</a>
       <button>Delete Board</button>
-    </article>
     </>
   );
 };
