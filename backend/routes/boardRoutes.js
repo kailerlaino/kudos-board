@@ -1,31 +1,32 @@
 const express = require("express");
 const router = express.Router();
-const { PrismaClient } = require("@prisma/client");
+const { PrismaClient } = require("../generated/prisma");
 const prisma = new PrismaClient();
 
 router.get("/", async (req, res) => {
-    const { category } = req.query;
+  const { category } = req.query;
 
-    const filters = {}
+  const filters = {};
 
-    if (category) {
-        filters.category = category;
-    }
+  if (category) {
+    filters.category = category;
+  }
 
-    try {
-        const boards = await prisma.board.findMany({
-            where: filters,
-            orderBy: {
-                createdAt: "desc",
-            },
-        });
-        res.json(boards);
-    } catch (error) {
-        console.error("Error fetching boards:", error);
-        res.status(500).json({ error: "Internal server error" });
-    }
-  const boards = await prisma.board.findMany();
-  res.json(boards);
+  try {
+    const boards = await prisma.board.findMany({
+      where: filters,
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+    res.json(boards);
+  } catch (error) {
+    console.error("Error fetching boards:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+    // const boards = await prisma.board.findMany()
+    // res.json(boards);
+
 });
 
 router.post("/", async (req, res) => {
@@ -50,6 +51,16 @@ router.get("/:id", async (req, res) => {
   const board = await prisma.board.findUnique({
     where: { id: parseInt(id) },
   });
+  try {
+    if (board) {
+      res.json(board);
+    } else {
+      res.status(404).send("Board not found");
+    }
+  } catch (error) {
+    console.error("Error fetching board:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
 });
 
 router.delete("/:id", async (req, res) => {
@@ -60,6 +71,5 @@ router.delete("/:id", async (req, res) => {
 
   res.json(deletedBoard);
 });
-
 
 module.exports = router;
