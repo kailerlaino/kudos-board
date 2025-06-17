@@ -35,11 +35,14 @@ router.post("/", async (req, res) => {
     return res.status(400).send("Title and category are required");
   }
   const { title, category, author } = req.body;
+  const randomId = Math.floor(Math.random() * 500) + 1;
+  const imageUrl = `https://picsum.photos/id/${randomId}/200/200`;
   const newBoard = await prisma.board.create({
     data: {
       title,
       category,
       author,
+      imageUrl,
     },
   });
 

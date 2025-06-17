@@ -20,4 +20,5 @@ model Board {
   category  String
   author    String?
   createdAt DateTime @default(now())
+  imageUrl  String
 }
