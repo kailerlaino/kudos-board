@@ -13,8 +13,6 @@ function CreateBoardForm({ onClose }) {
   const handleSubmit = (e) => {
     // TODO, connect backend to component
     e.preventDefault();
-    console.log("post request to /boards")
-    console.log(boardData)
     onClose()
   }
 
