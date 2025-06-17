@@ -22,7 +22,6 @@ const BoardGrid = () => {
       const response = await fetch(`http://localhost:${BACKEND_PORT}/api/boards`);
       const data = await response.json();
       setBoards(data); 
-      console.log("Fetched boards:", data);
     } catch (error) {
       console.error("Error fetching boards:", error);
     } finally {
@@ -32,12 +31,23 @@ const BoardGrid = () => {
   if (loading) return <p>Loading...</p>;
   if (boards.length === 0) return <p>No boards found.</p>;
 
+  const handleDelete = async (id) => {
+    try {
+      await fetch(`http://localhost:${BACKEND_PORT}/api/boards/${id}`, {
+        method: 'DELETE',
+      });
+      setBoards((prevBoards) => prevBoards.filter((board) => board.id !== id));
+    } catch (error) {
+      console.error("Error deleting board:", error);
+    }
+  };
+
   return (
     <>
       <section className="board-grid">
         {boards.map((board) => (
           <article className="board-card" key={board.id}>
-            <Board board={board} />
+            <Board board={board} onDelete={handleDelete}/>
           </article>
         ))}
         {/* {boards.map((movie) => (

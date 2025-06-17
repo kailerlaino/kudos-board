@@ -1,7 +1,6 @@
 import "./Board.css";
 
-const Board = ({board}) => {
-  console.log("Board component rendered with board:", board);
+const Board = ({board, onDelete}) => {
   return (
     <>
       <img alt={`board picture`} src={board.imageUrl}></img>
@@ -9,7 +8,7 @@ const Board = ({board}) => {
       <p>{board.category}</p>
       <p>{board.author ? board.author : "unknown"}</p>
       <a>View Cards</a>
-      <button>Delete Board</button>
+      <button onClick={() => onDelete(board.id)}>Delete Board</button>
     </>
   );
 };
