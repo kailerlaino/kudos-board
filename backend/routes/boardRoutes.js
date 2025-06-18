@@ -5,12 +5,19 @@ const prisma = new PrismaClient();
 
 // GET /api/boards
 router.get("/", async (req, res) => {
-  const { category } = req.query;
+  const { category, search } = req.query;
 
   const filters = {};
 
   if (category) {
     filters.category = category;
+  }
+
+  if (search && search.trim()) {
+    filters.title = {
+      contains: search.trim(),
+      mode: "insensitive", // Case-insensitive search
+    };
   }
 
   try {
@@ -23,6 +30,21 @@ router.get("/", async (req, res) => {
     res.json(boards);
   } catch (error) {
     console.error("Error fetching boards:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+router.get("/recent", async (req, res) => {
+  try {
+    const recentBoards = await prisma.board.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+      take: 6
+    });
+    res.json(recentBoards);
+  } catch (error) {
+    console.error("Error fetching recent boards:", error);
     res.status(500).json({ error: "Internal server error" });
   }
 });
