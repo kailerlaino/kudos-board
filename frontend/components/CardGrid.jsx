@@ -69,7 +69,11 @@ const CardGrid = () => {
   };
 
   return (
+    
     <div className="card-grid">
+      <Link to="/" className="back-link">
+        Back to Boards
+      </Link>
       <h2 className="board-title"> {boardTitle} </h2>
       <button className="create-btn" onClick={toggleForm}>
         Create new card

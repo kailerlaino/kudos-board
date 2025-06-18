@@ -32,20 +32,20 @@ Deployed Application (**required**): [Kudos Board Deployed Site](ADD_LINK_HERE)
     - [x] Thank you
     - [x] Inspiration
   - [x] When a category is clicked, boards matching the specified category are displayed.
-- [ ] **Search Functionality**
-  - [ ] Users can use a search bar to search for boards by title on the home page.
-  - [ ] The search bar should include:
-    - [ ] Text input field
-    - [ ] Submit/Search Button
-    - [ ] Clear Mechanism
-  - [ ] Boards with a title containing the search query in the text input field are displayed in a grid view when the user:
-    - [ ] Presses the Enter key
-    - [ ] Clicks the Submit/Search button 
-  - [ ] User can delete all text from the text input field. 
-  - [ ] When all text is cleared from the text input field, all boards are displayed in a grid view
-- [ ] **View Board** 
-  - [ ] Users can click on a board in the grid view to navigate to a new page containing that board's details.
-- [ ] **Add New Board**
+- [x] **Search Functionality**
+  - [x] Users can use a search bar to search for boards by title on the home page.
+  - [x] The search bar should include:
+    - [x] Text input field
+    - [x] Submit/Search Button
+    - [x] Clear Mechanism
+  - [x] Boards with a title containing the search query in the text input field are displayed in a grid view when the user:
+    - [x] Presses the Enter key
+    - [x] Clicks the Submit/Search button 
+  - [x] User can delete all text from the text input field. 
+  - [x] When all text is cleared from the text input field, all boards are displayed in a grid view
+- [x] **View Board** 
+  - [x] Users can click on a board in the grid view to navigate to a new page containing that board's details.
+- [x] **Add New Board**
   - [x] Users can create a new board on the home page.
   - [x] When creating a new board, users can specify the:
     - [x] Title (required)
@@ -64,20 +64,20 @@ Deployed Application (**required**): [Kudos Board Deployed Site](ADD_LINK_HERE)
   - [x] For each card should displayed, users can see the card's:
     - [x] Message
     - [x] Gif 
-    - [ ] Number of upvotes
+    - [x] Number of upvotes
     - [x] Delete button
-- [ ] **Add New Card**
+- [x] **Add New Card**
   - [x] Users can make a new card associated with the current board. 
   - [x] To successfully create a new card, users must specify the following:
     - [x] Text message (required).
-    - [ ] A gif users can search for and select within the form using the [GIPHY API](https://developers.giphy.com/docs/api/) (required).
+    - [x] A gif users can search for and select within the form using the [GIPHY API](https://developers.giphy.com/docs/api/) (required).
   - [x] Users are given the option to specify the author of the card.
   - [x] When the new card is successfully created, it appears in the grid of cards. 
-- [ ] **Upvote Card**
-  - [ ] Users can upvote a card.
-  - [ ] Update the vote count on the card tile when a user clicks the upvote icon.
-  - [ ] When the upvote icon is clicked the upvote count increases by 1. 
-  - [ ] A user can upvote a card multiple times. 
+- [x] **Upvote Card**
+  - [x] Users can upvote a card.
+  - [x] Update the vote count on the card tile when a user clicks the upvote icon.
+  - [x] When the upvote icon is clicked the upvote count increases by 1. 
+  - [x] A user can upvote a card multiple times. 
 - [x] **Delete Card**
   - [x] Users can delete cards.
   - [x] When the user clicks the delete button for a card, the card disappears from the grid of cards. 

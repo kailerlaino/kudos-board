@@ -87,7 +87,7 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-
+// POST /api/boards/:boardId/cards/:id/upvote
 router.post("/:id/upvote", async (req, res) => {
   const { id, boardId } = req.params;
   try {

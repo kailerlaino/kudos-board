@@ -24,11 +24,10 @@ const Card = ({card, onDelete}) =>{
 
     return (
         <>
-        <img alt="card gif" src="https://nice"></img>
+        <img alt="card gif" src={card.gifUrl}></img>
         <p>{card.content}</p>
         <button className="delete-card" onClick={() => onDelete(card.id)}>Delete Card</button>
         <button className="upvote-card" onClick={handleUpvote}>Upvote {upvotes}</button>
-        <Link to="/" className="back-link">Back to Home</Link>
         </>
     );
 }
