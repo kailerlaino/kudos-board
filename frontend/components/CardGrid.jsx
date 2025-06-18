@@ -2,14 +2,15 @@ import { Link } from "react-router";
 import { useParams } from "react-router";
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
+import CreateCardForm from "./CreateCardForm";
 import "./CardGrid.css";
+const BACKEND_PORT = 5000;
 
 const CardGrid = () => {
   const { boardId } = useParams();
-
   const [boardTitle, setBoardTitle] = useState("");
   const [cards, setCards] = useState([]);
-  const BACKEND_PORT = 5000;
+  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     fetchCards();
@@ -63,10 +64,19 @@ const CardGrid = () => {
     }
   };
 
+  const toggleForm = () => {
+    setShowForm(!showForm);
+  };
+
   return (
     <div className="card-grid">
       <h2 className="board-title"> {boardTitle} </h2>
-
+      <button className="create-btn" onClick={toggleForm}>
+        Create new card
+      </button>
+      {showForm && (
+        <CreateCardForm boardId={boardId} onSuccess={fetchCards} onClose={toggleForm} />
+      )}
       {cards.map((card) => (
         <article className="card" key={card.id}>
           <Card card={card} onDelete={handleDelete} />
