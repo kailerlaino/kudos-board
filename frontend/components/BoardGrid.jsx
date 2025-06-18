@@ -1,6 +1,5 @@
 import "./BoardGrid.css";
 import Board from "./Board";
-const BACKEND_PORT = 5000; 
 const BoardGrid = ({ loading, boards, onDelete }) => {
   if (loading) return <p>Loading...</p>;
   if (boards.length === 0) return <p>No boards found.</p>;

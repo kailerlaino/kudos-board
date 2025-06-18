@@ -8,7 +8,7 @@ import CreateBoardForm from "./CreateForms/CreateBoardForm";
 import BoardGrid from "./BoardGrid";
 import Footer from "./Footer";
 
-const BACKEND_PORT = 5000; // Default to 5000 if not set
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 function Home() {
   const [boards, setBoards] = useState([]);
@@ -24,7 +24,7 @@ function Home() {
     setLoading(true);
 
     try {
-      let url = `http://localhost:${BACKEND_PORT}/api/boards`;
+      let url = `${BACKEND_URL}/api/boards`;
       const params = new URLSearchParams();
 
       if (searchQuery.trim()) {
@@ -32,7 +32,7 @@ function Home() {
       }
 
       if (selectedCategory === "Recent") { 
-        url = `http://localhost:${BACKEND_PORT}/api/boards/recent`;
+        url = `${BACKEND_URL}/api/boards/recent`;
       } else if (selectedCategory !== "All") {
         params.append("category", selectedCategory);
       }
@@ -53,7 +53,7 @@ function Home() {
   const handleDelete = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:${BACKEND_PORT}/api/boards/${id}`,
+        `${BACKEND_URL}/api/boards/${id}`,
         {
           method: "DELETE",
         }
