@@ -5,12 +5,19 @@ const prisma = new PrismaClient();
 
 // GET /api/boards
 router.get("/", async (req, res) => {
-  const { category } = req.query;
+  const { category, search } = req.query;
 
   const filters = {};
 
   if (category) {
     filters.category = category;
+  }
+
+  if (search && search.trim()) {
+    filters.title = {
+      contains: search.trim(),
+      mode: "insensitive", // Case-insensitive search
+    };
   }
 
   try {

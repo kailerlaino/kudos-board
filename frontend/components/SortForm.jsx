@@ -1,7 +1,7 @@
 import React from "react";
 import "./SortForm.css";
 
-function SortForm({ changeSortType }) {
+function SortForm({ onCategoryChange, selectedCategory }) {
   return (
     <form className="sort-form">
       <select name="sort-by" onChange={(e) => changeSortType(e.target.value)}>
