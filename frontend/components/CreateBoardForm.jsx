@@ -10,15 +10,12 @@ function CreateBoardForm({ onSuccess, onClose }) {
   });
 
   const handleSubmit = (e) => {
-    // TODO, connect backend to component
     e.preventDefault();
     createBoard(boardData);
   };
 
   const createBoard = async (boardData) => {
     try {
-      console.log("Creating board with data:", boardData);
-      console.log(JSON.stringify(boardData));
       const response = await fetch(`http://localhost:5000/api/boards`, {
         method: "POST",
         headers: {

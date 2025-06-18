@@ -93,7 +93,6 @@ router.get("/:id", async (req, res) => {
 });
 
 // DELETE /api/boards/:id
-// TODO: Can't delete board if it has cards
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
   try {
