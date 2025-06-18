@@ -33,4 +33,13 @@ model Card {
   gifUrl    String 
   upvotes   Int      @default(0)
   board     Board    @relation(fields: [board_id], references: [id], onDelete: Cascade)
+  comments  Comment[]
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  card_id   Int
+  content   String
+  author    String?
+  card      Card     @relation(fields: [card_id], references: [id], onDelete: Cascade)
 }
