@@ -1,16 +1,14 @@
 import { Link } from "react-router";
-import { useParams } from "react-router";
 import React, { useState } from "react";
 import "./Card.css";
 
 const Card = ({card, onDelete}) =>{
-    const BACKEND_PORT = import.meta.env.VITE_BACKEND_PORT;
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
     const [upvotes, setUpvotes] = useState(card.upvotes || 0);
 
     const handleUpvote = async () => {
         try {
-            console.log(`http://localhost:${BACKEND_PORT}/api/boards/${card.board_id}/cards/${card.id}/upvote`);
-            const response = await fetch(`http://localhost:${BACKEND_PORT}/api/boards/${card.board_id}/cards/${card.id}/upvote`, {
+            const response = await fetch(`${BACKEND_URL}/api/boards/${card.board_id}/cards/${card.id}/upvote`, {
                 method: "POST",
             });
             if (!response.ok) {

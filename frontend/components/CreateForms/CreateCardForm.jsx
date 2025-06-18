@@ -131,7 +131,7 @@ function CreateCardForm({ boardId, onSuccess, onClose }) {
           type="text"
           value={cardData.gifUrl}
           placeholder="Enter GIF URL"
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onChange={(e) => setCardData({ ...cardData, gifUrl: e.target.value })}
           required
         ></input>
         <input
