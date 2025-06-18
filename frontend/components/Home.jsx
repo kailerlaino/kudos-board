@@ -97,7 +97,7 @@ function Home() {
         Create new board
       </button>
       {showForm && (
-        <CreateBoardForm onSuccess={fetchBoards} onClose={toggleForm} />
+        <CreateBoardForm onSuccess={fetchBoards} onClose={toggleForm}/>
       )}
       <BoardGrid loading={loading} boards={boards} onDelete={handleDelete} />
     </>
