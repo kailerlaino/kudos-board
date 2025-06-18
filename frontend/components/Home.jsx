@@ -1,12 +1,12 @@
 import "./Home.css";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router";
-import Header from "./Header";
+import Header from "./Misc/Header";
 import SortBy from "./SortForm";
 import SearchForm from "./SearchForm";
 import CreateBoardForm from "./CreateForms/CreateBoardForm";
-import BoardGrid from "./BoardGrid";
-import Footer from "./Footer";
+import BoardGrid from "./Grids/BoardGrid";
+import Footer from "./Misc/Footer";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
