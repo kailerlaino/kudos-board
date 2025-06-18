@@ -2,19 +2,40 @@ import React from "react";
 import "./CreateBoardForm.css";
 import { useState } from "react";
 
-function CreateBoardForm({ onClose }) {
-
+function CreateBoardForm({ onSuccess, onClose }) {
   const [boardData, setBoardData] = useState({
     title: "",
     category: "",
-    author: ""
-  })
+    author: "",
+  });
 
   const handleSubmit = (e) => {
     // TODO, connect backend to component
     e.preventDefault();
-    onClose()
-  }
+    createBoard(boardData);
+  };
+
+  const createBoard = async (boardData) => {
+    try {
+      console.log("Creating board with data:", boardData);
+      console.log(JSON.stringify(boardData));
+      const response = await fetch(`http://localhost:5000/api/boards`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json", 
+        },
+        body: JSON.stringify(boardData),
+      });
+      if (!response.ok) {
+        throw new Error("Failed to create board");
+      }
+      onSuccess();
+      setBoardData({ title: "", category: "", author: "" });
+      onClose();
+    } catch (error) {
+      console.error("Error creating board:", error);
+    }
+  };
 
   return (
     <div className="overlay">
@@ -28,13 +49,17 @@ function CreateBoardForm({ onClose }) {
           className="board-title-input"
           type="text"
           value={boardData.title}
-          onChange={(e) => setBoardData({ ...boardData, title: e.target.value})}
+          onChange={(e) =>
+            setBoardData({ ...boardData, title: e.target.value })
+          }
           required
         ></input>
         <label>Category</label>
         <select
           value={boardData.category}
-          onChange={(e) => setBoardData({ ...boardData, category: e.target.value})}
+          onChange={(e) =>
+            setBoardData({ ...boardData, category: e.target.value })
+          }
           required
         >
           <option value="">Select a category</option>
@@ -47,7 +72,9 @@ function CreateBoardForm({ onClose }) {
           className="board-author-input"
           type="text"
           value={boardData.author}
-          onChange={(e) => setBoardData({ ...boardData, author: e.target.value})}
+          onChange={(e) =>
+            setBoardData({ ...boardData, author: e.target.value })
+          }
         ></input>
         <button type="submit" className="submit">
           Create Board
