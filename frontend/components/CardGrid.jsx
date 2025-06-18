@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import CreateCardForm from "./CreateForms/CreateCardForm";
 import "./CardGrid.css";
-const BACKEND_PORT = 5000;
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 const CardGrid = () => {
   const { boardId } = useParams();
@@ -20,7 +20,7 @@ const CardGrid = () => {
   const fetchCards = async () => {
     try {
       const response = await fetch(
-        `http://localhost:${BACKEND_PORT}/api/boards/${boardId}/cards`
+        `${BACKEND_URL}/api/boards/${boardId}/cards`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch cards");
@@ -35,7 +35,7 @@ const CardGrid = () => {
   const fetchBoardTitle = async () => {
     try {
       const response = await fetch(
-        `http://localhost:${BACKEND_PORT}/api/boards/${boardId}`
+        `${BACKEND_URL}/api/boards/${boardId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch board");
@@ -50,7 +50,7 @@ const CardGrid = () => {
   const handleDelete = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:${BACKEND_PORT}/api/boards/${boardId}/cards/${id}`,
+        `${BACKEND_URL}/api/boards/${boardId}/cards/${id}`,
         {
           method: "DELETE",
         }
