@@ -3,6 +3,7 @@ const router = express.Router();
 const { PrismaClient } = require("../generated/prisma");
 const prisma = new PrismaClient();
 
+// GET /api/boards
 router.get("/", async (req, res) => {
   const { category } = req.query;
 
@@ -24,37 +25,40 @@ router.get("/", async (req, res) => {
     console.error("Error fetching boards:", error);
     res.status(500).json({ error: "Internal server error" });
   }
-    // const boards = await prisma.board.findMany()
-    // res.json(boards);
-
 });
 
+// POST /api/boards
 router.post("/", async (req, res) => {
-  // Double validation for required fields
-  if (!req.body.title || !req.body.category) {
-    return res.status(400).send("Title and category are required");
+  try {
+    if (!req.body.title || !req.body.category) {
+      return res.status(400).send("Title and category are required");
+    }
+    const { title, category, author } = req.body;
+    const randomId = Math.floor(Math.random() * 500) + 1;
+    const imageUrl = `https://picsum.photos/id/${randomId}/200/200`;
+    const newBoard = await prisma.board.create({
+      data: {
+        title,
+        category,
+        author,
+        imageUrl,
+      },
+    });
+    res.status(201).json(newBoard);
+  } catch (error) {
+    console.error("Error creating board:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
-  const { title, category, author } = req.body;
-  const randomId = Math.floor(Math.random() * 500) + 1;
-  const imageUrl = `https://picsum.photos/id/${randomId}/200/200`;
-  const newBoard = await prisma.board.create({
-    data: {
-      title,
-      category,
-      author,
-      imageUrl,
-    },
-  });
-
-  res.status(201).json(newBoard);
 });
 
+// GET /api/boards/:id
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
-  const board = await prisma.board.findUnique({
-    where: { id: parseInt(id) },
-  });
+
   try {
+    const board = await prisma.board.findUnique({
+      where: { id: parseInt(id) },
+    });
     if (board) {
       res.json(board);
     } else {
@@ -66,13 +70,23 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// DELETE /api/boards/:id
+// TODO: Can't delete board if it has cards
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
-  const deletedBoard = await prisma.board.delete({
-    where: { id: parseInt(id) },
-  });
-
-  res.json(deletedBoard);
+  try {
+    const deletedBoard = await prisma.board.delete({
+      where: { id: parseInt(id) },
+    });
+    if (deletedBoard) {
+      res.status(204).send();
+    } else {
+      res.status(404).send("Board not found");
+    }
+  } catch (error) {
+    console.error("Error deleting board:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
 });
 
 module.exports = router;

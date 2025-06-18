@@ -21,4 +21,15 @@ model Board {
   author    String?
   createdAt DateTime @default(now())
   imageUrl  String
+  cards     Card[]
+}
+
+model Card {
+  id        Int      @id @default(autoincrement())
+  board_id  Int
+  title     String
+  content   String
+  author    String?
+  gifUrl    String 
+  board     Board    @relation(fields: [board_id], references: [id])
 }
