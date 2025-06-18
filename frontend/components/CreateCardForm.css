@@ -17,7 +17,6 @@ body.active-modal {
   background: rgba(49, 49, 49, 0.8);
   justify-content: center;
   align-items: center;
-  z-index: 99;
 }
 
 .new-card-form {
@@ -26,7 +25,8 @@ body.active-modal {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  max-width: 50vh;
+  max-width: 75vh;
+  max-height: 90vh;
   overflow-y: auto;
   background: white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -35,14 +35,15 @@ body.active-modal {
 }
 
 .new-card-form label {
-  display:block;
+  display: block;
   margin-bottom: 5px;
 }
 
-.new-card-form select, .new-card-form input {
+.new-card-form select,
+.new-card-form input {
   padding: 8px;
   margin-bottom: 10px;
-  width: 95%
+  width: 95%;
 }
 
 .close-btn {
@@ -50,4 +51,20 @@ body.active-modal {
   top: 10px;
   right: 10px;
   padding: 5px 7px;
+}
+
+.gif-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  gap: 10px;
+  margin: 10px;
+}
+
+.gif-option {
+  border-radius: 8px;
+  height: 150px;
+  width: 150px;
 }
