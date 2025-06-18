@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router";
 import Header from "./Header";
 import SortBy from "./SortForm";
 import SearchForm from "./SearchForm";
-import CreateBoardForm from "./CreateBoardForm";
+import CreateBoardForm from "./CreateForms/CreateBoardForm";
 import BoardGrid from "./BoardGrid";
 import Footer from "./Footer";
 
