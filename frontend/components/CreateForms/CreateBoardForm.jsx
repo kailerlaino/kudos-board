@@ -9,6 +9,8 @@ function CreateBoardForm({ onSuccess, onClose }) {
     author: "",
   });
 
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
   const handleSubmit = (e) => {
     e.preventDefault();
     createBoard(boardData);
@@ -16,7 +18,7 @@ function CreateBoardForm({ onSuccess, onClose }) {
 
   const createBoard = async (boardData) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/boards`, {
+      const response = await fetch(`${BACKEND_URL}/api/boards`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json", 

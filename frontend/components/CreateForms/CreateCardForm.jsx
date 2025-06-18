@@ -11,6 +11,7 @@ function CreateCardForm({ boardId, onSuccess, onClose }) {
   });
   const [searchQuery, setSearchQuery] = useState("");
   const [gifOptions, setGifOptions] = useState([]);
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
     document.body.classList.add("active-modal");
@@ -51,7 +52,7 @@ function CreateCardForm({ boardId, onSuccess, onClose }) {
     try {
       console.log("Creating card with data:", cardData);
       const response = await fetch(
-        `http://localhost:5000/api/boards/${boardId}/cards`,
+        `${BACKEND_URL}/api/boards/${boardId}/cards`,
         {
           method: "POST",
           headers: {

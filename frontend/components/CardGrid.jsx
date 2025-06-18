@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import { useParams } from "react-router";
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
-import CreateCardForm from "./CreateCardForm";
+import CreateCardForm from "./CreateForms/CreateCardForm";
 import "./CardGrid.css";
 const BACKEND_PORT = 5000;
 
