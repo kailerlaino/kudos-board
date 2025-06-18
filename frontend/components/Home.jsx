@@ -14,10 +14,11 @@ function Home() {
   const [boards, setBoards] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   useEffect(() => {
     fetchBoards();
-  }, [searchQuery]);
+  }, [selectedCategory, searchQuery]);
 
   const fetchBoards = async () => {
     setLoading(true);
@@ -28,6 +29,12 @@ function Home() {
 
       if (searchQuery.trim()) {
         params.append("search", searchQuery);
+      }
+
+      if (selectedCategory === "Recent") { 
+        url = `http://localhost:${BACKEND_PORT}/api/boards/recent`;
+      } else if (selectedCategory !== "All") {
+        params.append("category", selectedCategory);
       }
 
       if (params.toString()) {
@@ -74,9 +81,13 @@ function Home() {
     setSearchQuery("");
   };
 
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+  };
+
   return (
     <>
-      <SortBy />
+      <SortBy onCategoryChange={handleCategoryChange} selectedCategory={selectedCategory}/>
       <SearchForm
         onSearch={handleSearch}
         onClear={handleClear}

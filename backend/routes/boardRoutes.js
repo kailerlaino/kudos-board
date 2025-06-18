@@ -34,6 +34,21 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/recent", async (req, res) => {
+  try {
+    const recentBoards = await prisma.board.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+      take: 6
+    });
+    res.json(recentBoards);
+  } catch (error) {
+    console.error("Error fetching recent boards:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 // POST /api/boards
 router.post("/", async (req, res) => {
   try {

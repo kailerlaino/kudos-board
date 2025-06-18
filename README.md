@@ -24,14 +24,14 @@ Deployed Application (**required**): [Kudos Board Deployed Site](ADD_LINK_HERE)
   - [x] For each board displayed, users can see:
     - [x] An image/gif
     - [x] A board title
-- [ ] **Filter Boards**
+- [x] **Filter Boards**
   -  [x] Home page includes navigation bar, drop down, or some other mechanism which allows users to filter boards by the following categories:
-    - [ ] All/Home (displays all boards)
-    - [ ] Recent (displays the 6 most recently created boards)
-    - [ ] Celebration
-    - [ ] Thank you
-    - [ ] Inspiration
-  - [ ] When a category is clicked, boards matching the specified category are displayed.
+    - [x] All/Home (displays all boards)
+    - [x] Recent (displays the 6 most recently created boards)
+    - [x] Celebration
+    - [x] Thank you
+    - [x] Inspiration
+  - [x] When a category is clicked, boards matching the specified category are displayed.
 - [ ] **Search Functionality**
   - [ ] Users can use a search bar to search for boards by title on the home page.
   - [ ] The search bar should include:
