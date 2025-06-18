@@ -87,4 +87,26 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+
+router.post("/:id/upvote", async (req, res) => {
+  const { id, boardId } = req.params;
+  try {
+    const updatedCard = await prisma.card.update({
+      where: {
+        id: parseInt(id),
+        board_id: parseInt(boardId),
+      },
+      data: {
+        upvotes: {
+          increment: 1,
+        },
+      }
+    });
+    res.json(updatedCard);
+  } catch (error) {
+    console.error("Error creating card:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 module.exports = router;
