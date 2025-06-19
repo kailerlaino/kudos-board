@@ -83,7 +83,7 @@ const CardGrid = () => {
       )}
       {cards.map((card) => (
         <article className="card" key={card.id}>
-          <Card card={card} onDelete={handleDelete} />
+          <Card card={card} onDelete={handleDelete} onPinToggle={fetchCards}/>
         </article>
       ))}
     </div>

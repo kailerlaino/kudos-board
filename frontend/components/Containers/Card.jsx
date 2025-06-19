@@ -2,11 +2,40 @@ import { Link } from "react-router";
 import React, { useState } from "react";
 import CommentModal from "../CommentModal";
 import "./Card.css";
+import { Pin } from "lucide-react";
 
-const Card = ({ card, onDelete }) => {
+const Card = ({ card, onDelete, onPinToggle }) => {
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const [upvotes, setUpvotes] = useState(card.upvotes || 0);
   const [showModal, setShowModal] = useState(false);
+
+  const handlePinToggle = async () => {
+    try {
+      const updatedCard = {
+        ...card,
+        pinned: !card.pinned,
+        pinnedAt: !card.pinned ? new Date().toISOString() : null,
+      };
+      const response = await fetch(
+        `${BACKEND_URL}/api/boards/${card.board_id}/cards/${card.id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedCard),
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Failed to update card");
+      }
+      if (onPinToggle) {
+        onPinToggle(updatedCard);
+      }
+    } catch (error) {
+      console.error("Error toggling pin:", error);
+    }
+  };
 
   const handleUpvote = async () => {
     try {
@@ -36,6 +65,13 @@ const Card = ({ card, onDelete }) => {
   return (
     <>
       <h2>{card.title}</h2>
+      <button className="pin-btn" onClick={handlePinToggle}>
+        <Pin
+          size={20}
+          color={card.pinned ? "#eab308" : "#888"}
+          fill={card.pinned ? "eab308" : "none"}
+        />
+      </button>
       <img alt="card gif" src={card.gifUrl}></img>
       <p>{card.content}</p>
       <button className="delete-card" onClick={() => onDelete(card.id)}>
