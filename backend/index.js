@@ -15,6 +15,9 @@ app.use("/api/boards", boardRoutes);
 const cardRoutes = require("./routes/cardRoutes");
 app.use("/api/boards/:boardId/cards", cardRoutes);
 
+const commentRoutes = require("./routes/commentRoutes");
+app.use("/api/boards/:boardId/cards/:cardId/comments", commentRoutes);
+
 app.get("/", (req, res) => {
   res.send(`
     <html>
