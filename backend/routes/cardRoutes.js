@@ -11,6 +11,7 @@ router.get("/", async (req, res) => {
       where: {
         board_id: parseInt(boardId, 10),
       },
+      orderBy: [{ pinned: "desc" }, { pinnedAt: "desc" }],
     });
     res.json(cards);
   } catch (error) {
@@ -100,11 +101,27 @@ router.post("/:id/upvote", async (req, res) => {
         upvotes: {
           increment: 1,
         },
-      }
+      },
     });
     res.json(updatedCard);
   } catch (error) {
     console.error("Error creating card:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+// PUT /api/boards/:boardId/cards/:id
+router.put("/:id", async (req, res) => {
+  const { id, boardId } = req.params;
+  const data = req.body;
+  try {
+    const updatedCard = await prisma.card.update({
+      where: { id: parseInt(id, 10) },
+      data,
+    });
+    res.json(updatedCard);
+  } catch (error) {
+    console.error("Error updating card:", error);
     res.status(500).json({ error: "Internal server error" });
   }
 });
