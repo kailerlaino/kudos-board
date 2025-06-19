@@ -69,10 +69,9 @@ const CardGrid = () => {
   };
 
   return (
-    
-    <div className="card-grid">
-      <Link to="/" className="back-link">
-        Back to Boards
+    <>
+    <Link to="/" className="back-link">
+        <span className="back-arrow">&#8592;</span> 
       </Link>
       <h2 className="board-title"> {boardTitle} </h2>
       <button className="create-btn" onClick={toggleForm}>
@@ -81,12 +80,14 @@ const CardGrid = () => {
       {showForm && (
         <CreateCardForm boardId={boardId} onSuccess={fetchCards} onClose={toggleForm} />
       )}
+    <div className="card-grid">
       {cards.map((card) => (
         <article className="card" key={card.id}>
           <Card card={card} onDelete={handleDelete} onPinToggle={fetchCards}/>
         </article>
       ))}
     </div>
+    </>
   );
 };
 
