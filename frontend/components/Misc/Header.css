@@ -1,15 +1,26 @@
 .banner-section {
   background-color: var(--color-primary);
   color: var(--color-text);
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  margin-bottom: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
   border: 10rem;
   border-radius: 4px
 }
 
 .banner-title {
+  flex: 1;
   text-align: center;
+  margin: 0;
   color: var(--color-text);
 }
 
+.banner-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.theme-toggle-button {
+  margin: 10px;
+}
