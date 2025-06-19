@@ -50,7 +50,6 @@ function CreateCardForm({ boardId, onSuccess, onClose }) {
 
   const createCard = async (cardData) => {
     try {
-      console.log("Creating card with data:", cardData);
       const response = await fetch(
         `${BACKEND_URL}/api/boards/${boardId}/cards`,
         {
