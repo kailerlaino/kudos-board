@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "Card" ALTER COLUMN "pinned" SET DEFAULT false,
+ALTER COLUMN "pinnedAt" DROP NOT NULL,
+ALTER COLUMN "pinnedAt" DROP DEFAULT;
