@@ -113,8 +113,8 @@ const CommentModal = ({ card, boardId, isOpen, onClose }) => {
               placeholder="Your name (optional)"
             ></input>
             <button type="submit">Post Comment</button>
-
-            <div className="comment-list">
+          </form>
+          <div className="comment-list">
               {comments.length === 0 ? (
                 <p>No comments yet. Be the first to comment!</p>
               ) : (
@@ -138,7 +138,6 @@ const CommentModal = ({ card, boardId, isOpen, onClose }) => {
                 ))
               )}
             </div>
-          </form>
         </div>
       </div>
     </div>
