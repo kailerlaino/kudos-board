@@ -51,6 +51,7 @@ function CreateBoardForm({ onSuccess, onClose }) {
           onChange={(e) =>
             setBoardData({ ...boardData, title: e.target.value })
           }
+          placeholder="Enter board title"
           required
         ></input>
         <label>Category</label>
@@ -74,6 +75,7 @@ function CreateBoardForm({ onSuccess, onClose }) {
           onChange={(e) =>
             setBoardData({ ...boardData, author: e.target.value })
           }
+          placeholder="Enter your name (optional)"
         ></input>
         <button type="submit" className="submit">
           Create Board
