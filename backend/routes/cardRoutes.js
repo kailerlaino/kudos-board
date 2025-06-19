@@ -11,6 +11,7 @@ router.get("/", async (req, res) => {
       where: {
         board_id: parseInt(boardId, 10),
       },
+      orderBy: [{ pinned: "desc" }, { pinnedAt: "desc" }],
     });
     res.json(cards);
   } catch (error) {
@@ -100,7 +101,7 @@ router.post("/:id/upvote", async (req, res) => {
         upvotes: {
           increment: 1,
         },
-      }
+      },
     });
     res.json(updatedCard);
   } catch (error) {
@@ -116,7 +117,7 @@ router.put("/:id", async (req, res) => {
   try {
     const updatedCard = await prisma.card.update({
       where: { id: parseInt(id, 10) },
-      data
+      data,
     });
     res.json(updatedCard);
   } catch (error) {
