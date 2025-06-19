@@ -31,6 +31,8 @@ model Card {
   content   String
   author    String?
   gifUrl    String 
+  pinned    Boolean
+  pinnedAt  DateTime @default(now())
   upvotes   Int      @default(0)
   board     Board    @relation(fields: [board_id], references: [id], onDelete: Cascade)
   comments  Comment[]
