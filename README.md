@@ -113,50 +113,50 @@ Deployed Application (**required**): [Kudos Board Deployed Site](https://kailers
   - [x] The chosen mode (light or dark) persists when navigating from home page to board pages and vice versa.
   - [x] When the user first visits the site the theme defaults to light mode.
   - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: To ease the grading process, please use the [color contrast checker](https://webaim.org/resources/contrastchecker/) to demonstrate to the grading team that text and background colors on your website have appropriate contrast in both light and dark mode. The Contrast Ratio should be above 4.5:1 and should have a green box surrounding it. 
-- [ ] **Pinned Cards**
-  - [ ] Users can pin a card to the top of the board.
-  - [ ] A Pin button is displayed on each card.
-  - [ ] When the user clicks the Pin button of an unpinned card:
-    - [ ] The card moves to the top of the grid view for that board.
-    - [ ] There is some visual feedback to indicate a card's pin status (e.g., a pin icon, a border highlight).
-    - [ ] The pin action is saved so that the card remains pinned after page refreshes.
-  - [ ] When the user clicks the Pin button of a pinned card:
-    - [ ] The card returns to its original position in the grid based on its creation time or to the end of the grid.
-    - [ ] The card's pin status (e.g., a pin icon or highlight)  is removed.
-    - [ ] The unpin action is saved so that the card remains unpinned after page refresh.
-  - [ ] Pinned cards always appear at the top of the board, above unpinned cards.
-  - [ ] If multiple cards are pinned, they maintain their pinned order based on the time they were pinned.
-    - [ ] More recent pins should appear first.
-- [ ] The pinned state of a card persists when:
-  - [ ] navigating away from and back to the board.
-  - [ ] refreshing the page. 
+- [x] **Pinned Cards**
+  - [x] Users can pin a card to the top of the board.
+  - [x] A Pin button is displayed on each card.
+  - [x] When the user clicks the Pin button of an unpinned card:
+    - [x] The card moves to the top of the grid view for that board.
+    - [x] There is some visual feedback to indicate a card's pin status (e.g., a pin icon, a border highlight).
+    - [x] The pin action is saved so that the card remains pinned after page refreshes.
+  - [x] When the user clicks the Pin button of a pinned card:
+    - [x] The card returns to its original position in the grid based on its creation time or to the end of the grid.
+    - [x] The card's pin status (e.g., a pin icon or highlight)  is removed.
+    - [x] The unpin action is saved so that the card remains unpinned after page refresh.
+  - [x] Pinned cards always appear at the top of the board, above unpinned cards.
+  - [x] If multiple cards are pinned, they maintain their pinned order based on the time they were pinned.
+    - [x] More recent pins should appear first.
+- [x] The pinned state of a card persists when:
+  - [x] navigating away from and back to the board.
+  - [x] refreshing the page. 
  
 
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website! (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
+(https://www.loom.com/share/6414d68de35042d789536f1c884752e0?sid=5012332b-fe97-4b7d-8709-b6864db92f94)
 
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+I felt a bit unprepared to complete the dark mode setting for this week's assignment. It was like nothing I had ever done before in the course and had to do a lot of learning on my own.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+I think some of the components, like the forms, could've been reused and consolidated into 1 singular component, however, since I was building as I went I did not realize until I was done and didn't want to spend time trying to refactor the 3 forms.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+I actually had an issue with my database right before recording and I couldn't create any cards because it was saying it didn't recognize the pinned field in my table. However, I was able to reset the deployed database and fix the error.
 
 ### Open-source libraries used
 
 - Add any links to open-source libraries used in your project.
+https://lucide.dev/
 
 ### Shout out
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+Shout out to all of the cohort 2 staff. They were all very helpful this week and since I wasn't going to be in office on Friday they communicated with me very well what I would miss and such.
