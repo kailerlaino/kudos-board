@@ -109,4 +109,20 @@ router.post("/:id/upvote", async (req, res) => {
   }
 });
 
+// PUT /api/boards/:boardId/cards/:id
+router.put("/:id", async (req, res) => {
+  const { id, boardId } = req.params;
+  const data = req.body;
+  try {
+    const updatedCard = await prisma.card.update({
+      where: { id: parseInt(id, 10) },
+      data
+    });
+    res.json(updatedCard);
+  } catch (error) {
+    console.error("Error updating card:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 module.exports = router;
