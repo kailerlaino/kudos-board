@@ -1,13 +1,53 @@
+:root {
+  --color-bg: white;
+  --color-text: #181818;
+  --color-primary: #A7CDBD;
+  --color-primary-hover: #89BDA7;
+  --color-primary-active: #76a491;
+  --color-border: #1b1f2326;
+  --color-card-bg: #fff;
+  --color-card-border: #ccc;
+}
+
+body.light {
+  --color-bg: white;
+  --color-text: #181818;
+  --color-primary: #A7CDBD;
+  --color-primary-hover: #89BDA7;
+  --color-primary-active: #76a491;
+  --color-border: #1b1f2326;
+  --color-card-bg: #fff;
+  --color-card-border: #ccc;
+  background:var(--color-bg);
+  color: var(--color-text);
+}
+
+body.dark {
+  --color-bg: #181818;
+  --color-text: #f5f5f5;
+  --color-primary: #26786D;
+  --color-primary-hover: #227066;
+  --color-primary-active: #17544D;
+  --color-border: #3a3a3a;
+  --color-card-bg: #23272b;
+  --color-card-border: #444;
+  background:var(--color-bg);
+  color: var(--color-text);
+}
+
+
 body {
   font-family: "Inter",sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
 }
 
 button {
   padding: 10px 15px;
   margin: 4px 2px;
-  background-color: #A7CDBD;
-  border: 1px solid #1b1f2326;
-  color: black;
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
   border-radius: 4px;
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -15,11 +55,11 @@ button {
 }
 
 button:hover {
-  background-color: #89BDA7;
+  background-color: var(--color-primary-hover);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 button:active {
-  background-color: #76a491;
+  background-color: var(--color-primary-active);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }

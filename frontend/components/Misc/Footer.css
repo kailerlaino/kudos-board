@@ -1,7 +1,6 @@
 footer {
-  width: 100vp; 
-  background-color: #BBE1C3;
-  color: black;
+  background-color: var(--color-primary);
+  color: var(--color-text);
   padding: 20px;
   border-radius: 4px;
 }
